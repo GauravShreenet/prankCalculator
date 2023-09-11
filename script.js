@@ -59,10 +59,11 @@ const allBtns = [...document.getElementsByClassName("btn")];
 let strToDisplay = "";
 
 const displaElm = document.querySelector(".result");
-console.log(displaElm);
+// console.log(displaElm);
 
 const operators = ["%", "/", "*", "+", "-", "."];
 
+let lastOperator = "";
 allBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const val = btn.innerText;
@@ -96,6 +97,20 @@ allBtns.forEach((btn) => {
 
         strToDisplay = strToDisplay.slice(0, -1);
       }
+    }
+
+    if (val === "."){
+      const indexOfLastOperator = strToDisplay.lastIndexOf(lastOperator);
+      const lastNumberSet = strToDisplay.slice(indexOfLastOperator);
+
+      if(lastNumberSet.includes(".")){
+        return;
+      }
+
+      if (!lastOperator && strToDisplay.includes(".")){
+        return;
+      }
+
     }
 
     strToDisplay += val;
