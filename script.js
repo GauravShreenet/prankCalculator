@@ -61,7 +61,7 @@ let strToDisplay = "";
 const displaElm = document.querySelector(".result");
 // console.log(displaElm);
 
-const audio = new Audio("./aa.wav")
+const audio = new Audio("./aaa.wav")
 
 const operators = ["%", "/", "*", "+", "-"];
 
